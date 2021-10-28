@@ -1,0 +1,3 @@
+order allow, deny
+allow from ::1
+deny from all

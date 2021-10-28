@@ -1,9 +1,3 @@
-.divider.menu-container {
-    width: 20vw;
-    min-width: 200px;
-    padding: 15px;
-}
-
 .menu {
     width: 100%;
     height: 100%;
@@ -13,22 +7,6 @@
     font-size: 15px;
     font-family: Poppins;
     position: relative;
-}
-
-.menu > .closebutton {
-    background-color: #ff6e6e;
-    border-radius: 100%;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    height: 10px;
-    width: 10px;
-    user-select: none;
-    cursor: pointer;
-}
-
-.minified > .menu > .closebutton {
-    background-color: #96fd5b;
 }
 
 .menu > .menu-title {
@@ -51,7 +29,7 @@
 .menu > .menu-title > .title-icon {
     width: 23%;
     text-align: center;
-    background-image: url("./lux_white.svg");
+    background-image: url("./images/lux_white.svg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: 30px;
@@ -107,4 +85,46 @@
 .menu > .menu-items > .menu-item.active {
     background-color: #4a4074;
     color: #bf9fe9;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .menu > .menu-title > .title-name,
+    .menu > .menu-items > .menu-item > .menu-name,
+    .menu > .menu-items > .menu-item.notification::before {
+        display: none;
+    }
+
+    .menu > .menu-items > .menu-item > .menu-icon {
+        width: 100%;
+    }
+
+    .divider.menu-container {
+        min-width: unset !important;
+        width: 15vw !important;
+    }
+
+    .menu > .menu-title > .title-icon {
+        width: 100% !important;
+    }
+
+    .menu > .menu-items {
+        padding-right: 5px !important;
+        padding-left: 5px !important;
+    }
+
+    .menu > .menu-title {
+        padding: 30px 0;
+    }
+
+    .menu > .menu-title,
+    .menu > .menu-items > .menu-item {
+        text-align: center !important;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    .divider.menu-container {
+        width: 17vw !important;
+    }
 }
