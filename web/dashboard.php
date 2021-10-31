@@ -13,7 +13,7 @@
         <?= file_get_contents("./php/templating/overlays.php"); ?>
 
         <div class="menu-container divider">
-            <?= file_get_contents("./php/templating/menu.php?active=settings") ?>
+            <?= file_get_contents("./php/templating/menu.php?active=dashboard") ?>
         </div>
 
         <div class="window divider">
