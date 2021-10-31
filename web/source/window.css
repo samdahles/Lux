@@ -1,24 +1,119 @@
-.divider.window > .window-content {
+.window.divider {
+    position: relative;
+}
+
+.window.divider > .window-content {
     width: 100%;
     height: 100%;
     border-radius: 15px;
     background-color: #161618;
     position: relative;
     color: #FFFFFF;
-    padding: 10px;
 }
 
-@media only screen and (max-width: 600px) {
-    .window.divider {
-        width: 85vw !important;
-    }
+.window.divider > .menubutton {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #ffffff;
+    z-index: 1;
+    font-family: "Roboto";
+    cursor: pointer;
+    user-select: none;
+    font-weight: 300;
+    display: none;
 }
+
+.window.divider > .menubutton > i {
+    transform: scale(0.6, 0.7);
+    transition: 1s transform;
+}
+
+.window.divider > .menubutton.rotated > i {
+    transform: scale(0.6, 0.7) rotate(180deg);
+} 
 
 
 .dashboard > .lightbox {
     width: 100%;
-    height: 300px;
-    max-height: 30%;
-    background-color: #1F1F21;
-    border-radius: 5px;
+    height: 50%;
+    position: relative;
+    display: block;
 }
+
+.dashboard > .lightbox > .lightbutton {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    background-color: #c191f7;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 20px 0px #f3f3f388;
+}
+
+.dashboard > .lightbox > .lightbutton > .lightbulb {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-image: url("./images/lightbulb.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 50px;
+    filter: invert(100%);
+}
+
+.dashboard > .controlbox {
+    width: 100%;
+    height: 50%;
+    max-height: 30%;
+    position: relative;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.dashboard > .controlbox > form {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard > .controlbox > form  > .row {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.dashboard > .controlbox > form  > .row > a {
+    display: block;
+    margin-bottom: 7px;
+    font-family: "Poppins";
+    font-size: 12px;
+}
+
+.dashboard > .controlbox > form > .row > input {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.dashboard > .controlbox > form > .row > input.hue::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, 
+    hsl(  0, 50%, 50%) 0%,
+    hsl( 60, 50%, 50%) 16.67%,
+    hsl(120, 50%, 44%) 33.33%,
+    hsl(180, 50%, 50%) 50%, 
+    hsl(240, 50%, 50%) 66.67%,
+    hsl(320, 50%, 50%) 83.33%, 
+    hsl(360, 50%, 50%) 100%
+    );
+}
+
+
+

@@ -4,10 +4,48 @@
     }
 
     50% {
-        opacity: 0
+        opacity: 0;
     }
 
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes fade_inverted {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes notificationColor {
+    0% {
+        color: #929098;
+    }
+
+    50% {
+        color: #ffae00
+    }
+
+    100% {
+        color: #929098;
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }

@@ -13,11 +13,21 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 body {
     display: flex;
     background-color: #242424;
+}
+
+#dummyframe {
+    display: none;
+}
+
+
+form.hiddenform {
+    display: none;
 }
 
 .divider {
@@ -33,7 +43,198 @@ body {
     padding-right: 0;
 }
 
-.divider.window {
+.window.divider {
     width: 80vw;
     padding: 15px;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+    height: 15px;
+    position: relative;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent; 
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 20px;
+    width: 20px;
+    box-shadow: 0px 0px 7px 4px #00000080;
+    border-radius: 100%;
+    background: #ffffff;
+    cursor: pointer;
+    margin-top: -3.5px;
+    -webkit-appearance: none;
+}
+
+input[type=range]::-moz-range-thumb,
+input[type=range]::-ms-thumb {
+    height: 20px;
+    width: 20px;
+    box-shadow: 0px 0px 7px 4px #00000080;
+    border-radius: 100%;
+    background: #ffffff;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: #e9e9e9;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 4px #00000080;
+}
+  
+  
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: #e9e9e9;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 4px #00000080;
+}
+  
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    background: #e9e9e9;
+    border-color: transparent;
+    color: transparent;
+}
+
+.overlaynotification {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    background-color: #ffffff;
+    z-index: 1;
+    font-family: "Roboto";
+    color: #161618;
+}
+
+
+.overlaynotification > .vacontainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.overlaynotification > .vacontainer > .notificationbox {
+    text-align: center;
+}
+
+.overlaynotification > .vacontainer > .notificationbox > .icon {
+    height: 120px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    display: block;
+    margin-bottom: 30px;
+}
+
+.minheight-notifier {
+    display: none;
+}
+
+.minheight-notifier > .vacontainer > .notificationbox > .icon {
+
+}
+
+.minheight-notifier > .vacontainer > .notificationbox > .icon {
+    background-image: url("./images/rotate_device.png");
+    animation: 2s rotate infinite ease-in-out;
+}
+
+@media screen and (orientation: landscape) {
+    .minheight-notifier {
+        display: block;
+    }
+}
+
+@media screen and (min-height: 750px) {
+    .minheight-notifier {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        display: block;
+        background-color: #161618;
+    }
+
+    .window.divider.activesidebar {
+        margin-left: 15vw;
+    }
+
+    .menu-container.divider.show {
+        margin-left: 0;
+
+    }
+
+    .divider {
+        transition: 1s margin;
+    }
+
+    .menu-container.divider {
+        margin-left: -15vw;
+        padding: 0;
+        position: absolute;
+    }
+
+    .menu-container.divider > .menu {
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        border-right: 1px solid #242424;
+    }
+
+    .menu-container.divider > .menu > .menu-title {
+        border-radius: 0;
+    }
+
+    .menu > .menu-items > .menu-item.notification {
+        animation: notificationColor 3s infinite;
+    }
+    
+
+    .window.divider {
+        width: 100vw;
+        height: 100vh;
+        min-height: -webkit-fill-available;
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .window.divider > .menubutton {
+        display: unset;
+    }
+    .window.divider > .window-content {
+        border-radius: 0;
+    }
+
+
+
 }
