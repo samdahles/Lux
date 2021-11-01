@@ -4,23 +4,23 @@
         <span class="title-name">Lux</span>
     </div>
     <div class="menu-items">
-        <a class="menu-item active" href="./dashboard">
+        <a class="menu-item menu-dashboard" href="./dashboard">
             <span class="menu-icon"><i class="fas fa-sliders-h"></i></span>
             <span class="menu-name">Dashboard</span>
         </a>
-        <a class="menu-item" href="./settings">
+        <a class="menu-item menu-settings" href="./settings">
             <span class="menu-icon"><i class="fas fa-cogs"></i></span>
             <span class="menu-name">Settings</span>
         </a>
-        <a class="menu-item" href="./link">
+        <a class="menu-item menu-link" href="./link">
             <span class="menu-icon"><i class="fas fa-broadcast-tower"></i></span>
             <span class="menu-name">Link</span>
         </a>
-        <a class="menu-item" href="./updates">
+        <a class="menu-item menu-updates" href="./updates">
             <span class="menu-icon"><i class="fas fa-sync-alt"></i> </span>
             <span class="menu-name">Updates</span>
         </a>
-        <a class="menu-item" href="./about">
+        <a class="menu-item menu-about" href="./about">
             <span class="menu-icon"><i class="fas fa-info-circle"></i></span>
             <span class="menu-name">About</span>
         </a>

@@ -11,12 +11,35 @@ function checkRangeSelect(e) {
     }
 }
 
+function getSettings() {
+    var settings = [];
+    $.ajax({
+        url: "endpoint/get?data=settings",
+        async: false,
+        dataType: "json",
+        success: (json) => {
+            settings = json;
+        }
+    });
+    return settings;
+}
+
 
 $(window).on("load", () => {
 
-    $(document).on('touchmove', (e) => {
-        if(e.scale !== 1) { e.preventDefault(); }
-    });
+    var filename = window.location.pathname.replace("/","").replace(".php", "").toLowerCase();
+
+    if(filename == "dashboard") {
+        $(".menu-dashboard").addClass("active");
+    } else if(filename == "settings") {
+        $(".menu-settings").addClass("active");
+    } else if(filename == "link") {
+        $(".menu-link").addClass("active");
+    } else if(filename == "updates") {
+        $(".menu-updates").addClass("active");
+    } else if(filename == "about") {
+        $(".menu-about").addClass("active");
+    }
 
     $(document).on("touchstart", (e) => {
         checkRangeSelect(e);

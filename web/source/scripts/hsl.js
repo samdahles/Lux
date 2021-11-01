@@ -1,4 +1,4 @@
-var hue, saturation, luminance, isOn, slideEvent;
+var hue, saturation, luminance, isOn;
 
 function updateHSLValues(){
     hue = $("input.hue").val();

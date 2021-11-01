@@ -1,5 +1,6 @@
 {
     "build" : "2021-10-30",
+    "isUpdate" : true,
     "mode" : "HSL",
     "linking" : {
         "to" : {
