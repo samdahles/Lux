@@ -7,7 +7,7 @@
     <head>
         <title>Lux</title>  
         <?= file_get_contents("./php/templating/meta.php"); ?>
-        <script src="source/scripts/hsl.js"></script>
+        <script src="source/scripts/settings.js"></script>
     </head>
 
     <body>

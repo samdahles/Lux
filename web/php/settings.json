@@ -1,10 +1,1 @@
-{
-    "build" : "2021-10-30",
-    "isUpdate" : true,
-    "mode" : "HSL",
-    "linking" : {
-        "to" : {
-            "ip" : "1.2.3.4:80"
-        }
-    }
-}
+{"build":"v0.1.0-alpha.1","latest":"v0.1.0-alpha.1","isUpdate":false,"mode":"HSL","forward":[],"linking":{"to":{"ip":"1.2.3.4:80"}}}

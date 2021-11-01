@@ -12,6 +12,8 @@
     font-size: 15px;
     font-family: Poppins;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .menu > .menu-title {
@@ -43,9 +45,11 @@
 
 .menu > .menu-items {
     padding: 15px;
-    display: block;
     width: 100%;
     user-select: none;
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
 }
 
 .menu > .menu-items > .menu-item {
@@ -57,6 +61,10 @@
     margin-bottom: 15px;
     transition: 1s background;
     position: relative;
+}
+
+.menu > .menu-items > .menu-item.menu-exit {
+    margin-top: auto;
 }
 
 

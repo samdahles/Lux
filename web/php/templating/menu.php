@@ -24,5 +24,9 @@
             <span class="menu-icon"><i class="fas fa-info-circle"></i></span>
             <span class="menu-name">About</span>
         </a>
+        <a class="menu-item menu-exit" href="./logout">
+            <span class="menu-icon"><i class="fas fa-sign-out-alt"></i></span>
+            <span class="menu-name">Logout</span>
+        </a>
     </div>
 </div>

@@ -38,13 +38,3 @@ if($_GET['type'] == "hsl") {
       // TODO GPIO: Temporary pass to ESP8266
       file_get_contents("http://192.168.2.7/?r${r}g${g}b${b}");
 }
-
-
-
-
-
-
-
-
-
-

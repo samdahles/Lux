@@ -1,4 +1,5 @@
 var isRangeSliderSelected = false;
+var settings;
 
 function checkRangeSelect(e) {
     var nodearray = $("input[type=range]").toArray();
@@ -12,21 +13,24 @@ function checkRangeSelect(e) {
 }
 
 function getSettings() {
-    var settings = [];
+    var settingsJson = [];
     $.ajax({
-        url: "endpoint/get?data=settings",
+        url: "/endpoint/get?data=settings",
         async: false,
         dataType: "json",
         success: (json) => {
-            settings = json;
+            settingsJson = json;
         }
     });
-    return settings;
+    return settingsJson;
 }
 
 
 $(window).on("load", () => {
-
+    settings = getSettings();
+    if(settings['isUpdate']) {
+        $(".menu-updates").addClass("notification");
+    }
     var filename = window.location.pathname.replace("/","").replace(".php", "").toLowerCase();
 
     if(filename == "dashboard") {

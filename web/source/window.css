@@ -115,5 +115,122 @@
     );
 }
 
+.updates > .container {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.updates.noupdate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.updates.noupdate > .container {
+    height: unset;
+}
+
+.updates > .container > .titlebox {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.updates > .container > .titlebox > .icon {
+    height: fit-content;
+    width: auto;
+    font-size: 50px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.updates > .container > .titlebox > .icon > i.fa-download {
+    display: block;
+    color: #ffae00;
+    animation: 3s updateColorFade infinite;
+}
+
+.updates > .container > .titlebox > .icon > i.fa-check {
+    display: none;
+    height: 130px;
+    color: #79ff79;
+}
+
+.updates.noupdate > .container > .titlebox > .icon > i.fa-download {
+    display: none;
+}
+
+.updates.noupdate > .container > .titlebox > .icon > i.fa-check {
+    display: block;
+}
+
+.updates > .container > .infobox {
+    font-family: "Poppins";
+    text-align: center;
+}
+
+.updates > .container > .infobox > .subtitle {
+    display: none;
+}
+
+.updates > .container > .infobox > .subtitle.update {
+    display: block;
+}
+
+.updates.noupdate > .container > .infobox > .subtitle {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.updates.noupdate > .container > .infobox > .subtitle.update {
+    display: none;
+}
+
+.updates > .container > .infobox > .versioninfo > a.latest {
+    display: inline-block;
+}
+
+.updates.noupdate > .container > .infobox > .versioninfo > a.latest {
+    display: none;
+}
 
 
+.updates > .container > .infobox > .versioninfo > a {
+    display: inline-block;
+    word-break: keep-all;
+}
+
+.updates > .container > .infobox > .versioninfo > a > span {
+    font-family: "Office Code Pro";
+    color: #bf9fe9;
+}
+
+.updates.noupdate > .container > .buttonbox {
+    display: none;
+}
+
+.updates > .container > .buttonbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.updates > .container > .buttonbox > a {
+    color: #bf9fe9;
+    padding: 10px;
+    font-family: "Poppins";
+    background-color: #4a4074;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 20px 0px #4a4074;
+    margin: 0 auto;
+    width: fit-content;
+}
