@@ -4,9 +4,15 @@ header("Content-Type: application/json");
 
 $github_release_url = "https://api.github.com/repos/samdahles/Lux/releases";
 
+function dieError($index) {
+    header("Content-Type: application/json");
+    $errorJSON = json_decode(file_get_contents("../php/error.json"), true);
+    $return = array("error" => $errorJSON[$index]);
+    die(json_encode($return));
+}
 
 if(!isset($_GET['data'])) {
-   $data = "{\"error\" : \"No ?data GET parameter has been specified.\"}";
+    dieError(4);
 } else {
     if($_GET['data'] == "rgb") {
         $raw = file_get_contents("../php/hsl.json");
@@ -39,10 +45,18 @@ if(!isset($_GET['data'])) {
         } else {
             $settings['isUpdate'] = false;
         }
+
+        $loginInfo = json_decode(file_get_contents("../php/login.json"), true);
+        
+        $settingsOnly = json_encode($settings);
+        file_put_contents("../php/settings.json", $settingsOnly);
+
+        $settings['isLoginEnabled'] = $loginInfo['enabled'];
+        $settings['latestLogin'] = $loginInfo['lastLogin'];
         $data = json_encode($settings);
-        file_put_contents("../php/settings.json", $data);
+
     } else {
-        $data = "{\"error\" : \"Argument '{$_GET['data']}' for ?data GET parameter is unknown.\"}";
+        dieError(5);
     }
 }
 

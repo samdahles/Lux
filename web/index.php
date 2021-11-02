@@ -1,6 +1,20 @@
 <?php
 session_start();
 
+$loginJSON = json_decode(file_get_contents("./php/login.json"), true);
+if($loginJSON['enabled']) {
+    if(isset($_SESSION['pass_hash'])) {
+        if($_SESSION['pass_hash'] != $loginJSON['password']) {
+            session_destroy();
+        } else {
+            header("Location: ./dashboard");
+        }
+    }
+} else {
+    header("Location: ./dashboard");
+}
+
+
 if(isset($_GET['error'])) {
     $errors = json_decode(file_get_contents("./php/error.json"));
     if(isset($errors[$_GET['error']])){

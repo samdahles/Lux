@@ -6,7 +6,7 @@
     </div>
 
     <div class="controlbox">
-        <form id="lightControlForm" action="./endpoint/set.php" target="dummyframe" method="GET">
+        <form id="lightControlForm" action="./endpoint/set" target="dummyframe" method="GET">
             <input type="hidden" name="type" value="hsl" />
             <input type="hidden" id="lightControlIsOn" name="isOn" value="true" />
             <div class="row">

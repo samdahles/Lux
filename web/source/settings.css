@@ -1,0 +1,82 @@
+.window-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.window-content > .vacontainer {
+    height: auto;
+    width: 100%;
+}
+
+form {
+    font-size: 16px;
+    font-family: "Poppins";
+}
+
+form > .row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+form > .row > label[for] {
+    flex-grow: 1;
+}
+
+form > .row > .switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+form > .row > .switch > input[type=checkbox] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+form > .row > .switch > .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3a3a3a;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+form > .row > .switch > .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ffffff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+form > .row > .switch > input:checked + .slider {
+    background-color: #bf9fe9;
+}
+
+form > .row > .switch > input:focus + .slider {
+    box-shadow: 0 0 1px #bf9fe9;
+}
+
+form > .row > .switch > input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}

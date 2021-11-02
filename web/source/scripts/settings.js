@@ -1,17 +1,18 @@
+/// <reference path="jquery-3.6.0.js" />
 var settings = [];
 
+console.log(getSettings());
 
 $(window).on("DOMContentLoaded", () => {
     settings = getSettings();
-
-    if(!settings['isUpdate']) {
-        $(".window-content.updates").addClass("noupdate");
+    console.log(settings);
+    if(settings['isLoginEnabled']) {
+        $(".enablePassword").prop("checked", true);
     }
 
-    $(".latestVersion").text(settings['latest']);
-    $(".buttonbox .latestVersion").text(settings['latest'] + ".rar");
-
-    var href = "https://github.com/samdahles/Lux/releases/download/" + settings['latest'] + "/" + settings['latest'] + ".rar";
-    $(".buttonbox a").attr("href", href);
-    $(".currentVersion").text(settings['build']);
+    $("form").on("submit", () => {
+        var url = new URL(window.location.href);
+        url.searchParams.append("time", new Date().now());
+        window.location = url;
+    });
 });

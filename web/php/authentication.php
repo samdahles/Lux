@@ -7,11 +7,15 @@ if($loginJSON['enabled']) {
         if($_SESSION['pass_hash'] != $loginJSON['password']) {
             session_destroy();
             header("Location: /?error=0");
+        } else {
+            $loginJSON['lastLogin'] = time();
+            file_put_contents("./php/login.json", json_encode($loginJSON));
         }
     } else {
         session_destroy();
         header("Location: /?error=1");
     }
+} else {
+    $_SESSION['pass_hash'] = $loginJSON['password'];
 }
-
 ?>

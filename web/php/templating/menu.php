@@ -24,9 +24,18 @@
             <span class="menu-icon"><i class="fas fa-info-circle"></i></span>
             <span class="menu-name">About</span>
         </a>
+
+        <?php
+            $loginJSON = json_decode(file_get_contents("./php/login.json"), true);
+            if($loginJSON['enabled'] == true) {
+        ?>
         <a class="menu-item menu-exit" href="./logout">
             <span class="menu-icon"><i class="fas fa-sign-out-alt"></i></span>
             <span class="menu-name">Logout</span>
         </a>
+        <?php
+            }
+        ?>
+
     </div>
 </div>
