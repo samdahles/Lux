@@ -21,7 +21,7 @@
 
 <meta name="msapplication-TileColor" content="#161618"/>
 
-<script src="/source/scripts/jquery.min.js"></script>
+<script src="/source/scripts/jquery-3.6.0.js"></script>
 <script src="/source/scripts/menu.js"></script>
 <script src="/source/scripts/swiped-events.js"></script>
 

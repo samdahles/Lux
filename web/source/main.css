@@ -157,7 +157,7 @@ input[type=range]::-ms-track {
     }
 }
 
-@media screen and (min-height: 750px) {
+@media screen and (min-height: 650px) {
     .minheight-notifier {
         display: none;
     }
