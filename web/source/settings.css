@@ -1,3 +1,13 @@
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input, input::placeholder {
+    color: #161618;
+}
+
+
+
 .window-content {
     display: flex;
     height: 100%;
@@ -12,9 +22,98 @@
     width: 100%;
 }
 
+.window-content > .vacontainer > .message {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Poppins";
+    color: #79ff79;
+    margin-bottom: 20px;
+
+}
+
 form {
     font-size: 16px;
     font-family: "Poppins";
+    text-align: center;
+}
+
+form input[type=text], form input[type=url] {
+    padding: 4px;
+    border: none;
+    height: 34px;
+    border-radius: 5px;
+}
+
+form .info {
+    padding-right: 15px;
+}
+
+form .info > i {
+    color: #bf9fe9;
+    transition: 1s color;
+}
+
+form .info > i:hover {
+    color: #ffffff;
+    cursor: help;
+}
+
+button {
+    color: #bf9fe9;
+    border: none;
+    padding: 10px;
+    font-family: "Poppins";
+    background-color: #4a4074;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 20px 0px #4a4074;
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    cursor: pointer;
+    transition: 1s background-color, 1s color;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #161618;
+}
+
+form > span.description {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: "Office Code Pro";
+    font-size: 0.8em;
+}
+
+form > .row > input.codeentry {
+    display: inline-block;
+    width:  15vmin;
+    max-width: 75px;
+    max-height: 75px;
+    height: 15vmin;
+    text-align: center;
+    font-size: min(7vmin, 45px);
+    font-family: "Office Code Pro";
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    caret-color: transparent;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    align-self: center;
+}
+
+form > .row > input.codeentry:focus {
+    background-color: #bf9fe9; 
+}
+
+
+form .hiddenSubmit {
+    display: none !important;
 }
 
 form > .row {
@@ -22,11 +121,17 @@ form > .row {
     height: auto;
     display: flex;
     align-items: center;
-    padding: 10px 20px;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 20px;
 }
 
 form > .row > label[for] {
     flex-grow: 1;
+    text-align: left;
 }
 
 form > .row > .switch {

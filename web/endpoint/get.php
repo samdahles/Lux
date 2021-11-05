@@ -14,6 +14,7 @@ function dieError($index) {
 if(!isset($_GET['data'])) {
     dieError(4);
 } else {
+
     if($_GET['data'] == "rgb") {
         $raw = file_get_contents("../php/hsl.json");
         $raw = str_replace(array("[", "]"), "", $raw);
@@ -25,7 +26,7 @@ if(!isset($_GET['data'])) {
         $raw[3] = filter_var($raw[3], FILTER_VALIDATE_BOOLEAN);
         $data = json_encode($raw);
     } elseif($_GET['data'] == "hsl") {
-        $data = file_get_contents("../php/hsl.json", true);
+        $data = file_get_contents("../php/hsl.json");
     } elseif($_GET['data'] == "settings") {
         $settings = json_decode(file_get_contents("../php/settings.json"), true);
         $context = stream_context_create(
@@ -53,6 +54,7 @@ if(!isset($_GET['data'])) {
 
         $settings['isLoginEnabled'] = $loginInfo['enabled'];
         $settings['latestLogin'] = $loginInfo['lastLogin'];
+        $settings['forward']['code'] = $loginInfo['forwardPassword'];
         $data = json_encode($settings);
 
     } else {

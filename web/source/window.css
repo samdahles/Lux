@@ -234,3 +234,48 @@
     margin: 0 auto;
     width: fit-content;
 }
+
+.about {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about > .vacontainer {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about > .vacontainer > .logo {
+    width: 100px;
+    height: 100px;
+    background-image: url("./images/lux_white.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 10px;
+}
+
+.about > .vacontainer > .title {
+    font-family: "Office Code Pro";
+    font-size: 30px;
+    color: #c191f7;
+}
+
+.about > .vacontainer > .subtitle {
+    color: #4a4074;
+    font-family: "Office Code Pro";
+    font-size: 12px;
+}
+
+.about > .vacontainer > .by {
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"
+}

@@ -34,7 +34,7 @@ if(isset($_GET['error'])) {
         ?>
         <script>
             $(window).on("DOMContentLoaded", () => {
-                displayError("<?= $error ?>");
+                displayError("<?= htmlspecialchars($error) ?>");
             });
         </script>
         <?php
@@ -44,12 +44,12 @@ if(isset($_GET['error'])) {
     <body>
         <div class="vacontainer">
             <span class="message">Please enter your access code.</span>
-            <form action="./login" method="POST">
+            <form action="./login" method="POST" target="_self">
                 <input type="hidden" class="code" name="code" value="0000" />
-                <input type="number" autofocus min="0" class="codeentry entry-1" placeholder="_" />
-                <input type="number" min="0" class="codeentry entry-2" placeholder="_" />
-                <input type="number" min="0" class="codeentry entry-3" placeholder="_" />
-                <input type="number" min="0" class="codeentry entry-4" placeholder="_" />
+                <input type="number" maxlength="1" autofocus min="0" class="codeentry entry-1" placeholder="_" />
+                <input type="number" maxlength="1" min="0" class="codeentry entry-2" placeholder="_" />
+                <input type="number" maxlength="1" min="0" class="codeentry entry-3" placeholder="_" />
+                <input type="number" maxlength="1" min="0" class="codeentry entry-4" placeholder="_" />
             </form>
         </div>
     </body>

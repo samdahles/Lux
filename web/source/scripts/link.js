@@ -1,11 +1,28 @@
-/// <reference path="jquery-3.6.0.js" />
 var settings = [];
 
 $(window).on("DOMContentLoaded", () => {
     settings = getSettings();
-    if(settings['isLoginEnabled']) {
-        $(".enablePassword").prop("checked", true);
+    if(settings['forward']['enabled']) {
+        $(".enableForward").prop("checked", true);
     }
+
+    $(".forwardingAddress").val(settings['forward']['to']);
+
+    let forwardCode = settings['forward']['code'];
+
+    $(".code.entry-A").val(forwardCode);
+    for(i=0; i<forwardCode.split("").length; i++) {
+        $(".codeentry.entry-A-" + (i + 1)).attr("placeholder", forwardCode.split("")[i]);
+    }
+
+    $(".submitAllFormsButton").on("click", () => {
+        $("form").submit();
+        location.reload();
+    });
+
+    $(".forwardingAddressHelp").on("click", () => {
+        alert(`Please enter the IP address or domain name, without 'http://' or 'https://' and do not end with a trailing slash.`);
+    });
 
     $(".codeentry").val("");
     $(".codeentry").on("keyup", (event) => {
@@ -38,42 +55,4 @@ $(window).on("DOMContentLoaded", () => {
         correspondingCodeInput.val(currentCode.join(""));
     });
 
-    $($(".codeentry")[0].form).on("submit", (event) => {
-        event.preventDefault();
-        var question = confirm("Are you sure you want to set your password to " + $(".code.entry-A").val() + "?");
-        if(!question) {
-            return;
-        }
-
-        var form = event.currentTarget;
-        var url = $(form).attr("action");
-
-        $.ajax({
-            type: "GET",
-            url: url,
-            data: $(form).serialize(),
-            success: function(data)
-            {
-                console.log(data);
-                try {
-                    json = JSON.parse(data);
-                } catch (error) {
-                    json = [];
-                    console.log(error);
-                }
-                if(typeof json['error'] !== 'undefined') {
-                    $("span.message").css("color", "#ffbbbb");
-                    $("span.message").text(json['error']);
-                } else if(typeof json['success'] !== 'undefined') {
-                    $("span.message").text(json['success']);
-                }
-            }
-        });
-    });
-
 });
-
-function submitForm(element) {
-    $(element.form).children().last().children().last().click();
-    window.location.href = window.location.href;
-}

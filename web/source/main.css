@@ -148,7 +148,6 @@ input[type=range]::-ms-track {
 
 .minheight-notifier > .vacontainer > .notificationbox > .icon {
     background-image: url("./images/rotate_device.png");
-    animation: 2s rotate infinite ease-in-out;
 }
 
 @media screen and (orientation: landscape) {

@@ -44,6 +44,5 @@ body > .vacontainer > form > input {
 }
 
 body > .vacontainer > form > input:focus {
-    background-color: #bf9fe9;
-    
+    background-color: #bf9fe9; 
 }

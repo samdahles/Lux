@@ -7,6 +7,8 @@
     <head>
         <title>Lux</title>  
         <?= file_get_contents("./php/templating/meta.php"); ?>
+        <link rel="stylesheet" href="./source/settings.css" />
+        <script src="./source/scripts/link.js"></script>
     </head>
 
     <body>

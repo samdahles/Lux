@@ -1,4 +1,4 @@
-var hue, saturation, luminance, isOn;
+var hue, saturation, luminance, isOn, synchronizationEnabled, synchronizationTimeout, settings;
 
 function updateHSLValues(){
     hue = $("input.hue").val();
@@ -23,7 +23,13 @@ function setCorrectLightbulbColor() {
 }
 
 function updateFromEndpoint() {
-    $.getJSON("endpoint/get?data=hsl", function(data) {
+    var endpoint;
+    if(settings['forward']['enabled']) {
+        endpoint = "http://" + settings['forward']['to'] + "/endpoint/get?data=hsl";
+    } else {
+        endpoint = "endpoint/get?data=hsl";
+    }
+    $.getJSON(endpoint, function(data) {
         $("input.hue").val(data[0]);
         $("input.saturation").val(data[1]);
         $("input.luminance").val(data[2]);
@@ -45,11 +51,31 @@ function toggleLightPower() {
 }
 
 $(window).on("DOMContentLoaded", () => {
-    setInterval(() => {
-        if(!isRangeSliderSelected) {
-            updateFromEndpoint();
-        }
-    }, 200);
+    settings = getSettings();
+    synchronizationEnabled = settings['synchronization']['enabled'];
+    synchronizationTimeout = settings['synchronization']['timeout'];
+    updateFromEndpoint();
+
+    if(settings['forward']['enabled']) {
+        $("#lightControlForm").on("submit", (event) => {
+            var form = event.currentTarget;
+            var endpoint = settings['forward']['to'] + "/endpoint/set";
+            $.ajax({
+                type: "GET",
+                url: endpoint,
+                data: $(form).serialize(),
+            });
+        });
+    }
+
+    if(synchronizationEnabled) {
+        setInterval(() => {
+            if(!isRangeSliderSelected) {
+                updateFromEndpoint();
+            }
+        }, synchronizationTimeout);
+    }
+
 
     $(".lightbutton").on("click", () => {
         toggleLightPower();

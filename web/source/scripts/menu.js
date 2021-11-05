@@ -31,6 +31,12 @@ $(window).on("load", () => {
     if(settings['isUpdate']) {
         $(".menu-updates").addClass("notification");
     }
+
+    if(!settings['isLoginEnabled']) {
+        $(".menu-exit").hide();
+    }
+
+
     var filename = window.location.pathname.replace("/","").replace(".php", "").toLowerCase();
 
     if(filename == "dashboard") {
