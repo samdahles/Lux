@@ -29,7 +29,15 @@ input, input::placeholder {
     font-family: "Poppins";
     color: #79ff79;
     margin-bottom: 20px;
+}
 
+
+hr {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;    
+    margin-bottom: 20px;
+    border: 1px solid #bf9fe9;
 }
 
 form {
@@ -45,16 +53,16 @@ form input[type=text], form input[type=url] {
     border-radius: 5px;
 }
 
-form .info {
+.flexparent .info {
     padding-right: 15px;
 }
 
-form .info > i {
+.flexparent .info > i {
     color: #bf9fe9;
     transition: 1s color;
 }
 
-form .info > i:hover {
+.flexparent .info > i:hover {
     color: #ffffff;
     cursor: help;
 }
@@ -67,7 +75,6 @@ button {
     background-color: #4a4074;
     border-radius: 5px;
     text-decoration: none;
-    box-shadow: 0px 0px 20px 0px #4a4074;
     margin: 0 auto;
     width: fit-content;
     display: flex;
@@ -80,7 +87,7 @@ button:hover {
     color: #161618;
 }
 
-form > span.description {
+.flexparent > span.description {
     display: block;
     width: 100%;
     text-align: center;
@@ -88,14 +95,12 @@ form > span.description {
     font-size: 0.8em;
 }
 
-form > .row > input.codeentry {
+.flexparent > .row > input.codeentry {
     display: inline-block;
-    width:  15vmin;
-    max-width: 75px;
-    max-height: 75px;
-    height: 15vmin;
+    width: 35px;
+    height: 35px;
     text-align: center;
-    font-size: min(7vmin, 45px);
+    font-size: 17px;
     font-family: "Office Code Pro";
     -moz-appearance: textfield;
     appearance: textfield;
@@ -107,7 +112,7 @@ form > .row > input.codeentry {
     align-self: center;
 }
 
-form > .row > input.codeentry:focus {
+.flexparent > .row > input.codeentry:focus {
     background-color: #bf9fe9; 
 }
 
@@ -116,7 +121,8 @@ form .hiddenSubmit {
     display: none !important;
 }
 
-form > .row {
+
+.flexparent > .row {
     width: 100%;
     height: auto;
     display: flex;
@@ -129,24 +135,24 @@ form > .row {
     padding-bottom: 20px;
 }
 
-form > .row > label[for] {
+.flexparent > .row > label[for], .flexparent > .row > .description {
     flex-grow: 1;
     text-align: left;
 }
 
-form > .row > .switch {
+.flexparent > .row > .switch {
     position: relative;
     width: 60px;
     height: 34px;
 }
 
-form > .row > .switch > input[type=checkbox] {
+.flexparent > .row > .switch > input[type=checkbox] {
     opacity: 0;
     width: 0;
     height: 0;
 }
 
-form > .row > .switch > .slider {
+.flexparent > .row > .switch > .slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -159,7 +165,7 @@ form > .row > .switch > .slider {
     border-radius: 34px;
 }
 
-form > .row > .switch > .slider:before {
+.flexparent > .row > .switch > .slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -172,16 +178,87 @@ form > .row > .switch > .slider:before {
     border-radius: 50%;
 }
 
-form > .row > .switch > input:checked + .slider {
+.flexparent > .row > .switch > input:checked + .slider {
     background-color: #bf9fe9;
 }
 
-form > .row > .switch > input:focus + .slider {
+.flexparent > .row > .switch > input:focus + .slider {
     box-shadow: 0 0 1px #bf9fe9;
 }
 
-form > .row > .switch > input:checked + .slider:before {
+
+.flexparent > .row > .switch > input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
+}
+
+.IOHandlerbox {
+    font-family: "Office Code Pro";
+    padding: 20px;
+}
+
+.IOHandlerbox > .scrollbox {
+    overflow: auto;
+    max-height: 100px;
+}
+
+.IOHandlerbox .item {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    max-width: 600px;
+    color: #40d4d4;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.IOHandlerbox > .item {
+    transition: 0.5s background;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.IOHandlerbox.wrong > .item {
+    background-color: #ff5b5b;
+}
+
+
+.IOHandlerbox .item > i {
+    font-size: 1em;
+    width: 10%;
+    max-width: 60px;
+    text-align: center;
+    color: #ff5b5b;
+    cursor: pointer;
+}
+
+.IOHandlerbox > .item > i {
+    color: #79ff79;
+}
+
+.IOHandlerbox .item > .address {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.IOHandlerbox .item > .address > input {
+    padding: 4px;
+    font-size: 1em;
+    border: none;
+    font-family: "Office Code Pro";
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid #bbbbff;
+    transition: 1s border-color;
+}
+
+.IOHandlerbox .item > .address > input:hover {
+    border-bottom: 1px solid #ff5b5b;
+}
+
+.IOHandlerbox .item > .address > input::placeholder {
+    color: #ffffff;
 }

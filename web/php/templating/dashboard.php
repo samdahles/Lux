@@ -7,6 +7,7 @@
 
     <div class="controlbox">
         <form id="lightControlForm" action="./endpoint/set" target="dummyframe" method="GET">
+            <input type="hidden" class="forwardCode" />
             <input type="hidden" name="type" value="hsl" />
             <input type="hidden" id="lightControlIsOn" name="isOn" value="true" />
             <div class="row">

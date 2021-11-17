@@ -21,6 +21,7 @@ body > .vacontainer > span {
     font-family: "Poppins";
     width: 100%;
     display: block;
+    max-width: 80vw;
 }
 
 body > .vacontainer > form {

@@ -52,15 +52,10 @@ $(window).on("DOMContentLoaded", () => {
             type: "GET",
             url: url,
             data: $(form).serialize(),
-            success: function(data)
+            dataType: "json",
+            success: function(json)
             {
-                console.log(data);
-                try {
-                    json = JSON.parse(data);
-                } catch (error) {
-                    json = [];
-                    console.log(error);
-                }
+                console.log(json);
                 if(typeof json['error'] !== 'undefined') {
                     $("span.message").css("color", "#ffbbbb");
                     $("span.message").text(json['error']);
@@ -71,9 +66,142 @@ $(window).on("DOMContentLoaded", () => {
         });
     });
 
+    $(".IOHandlerAddressHelp").on("click", () => {
+        alert("Enter the IP Address or hostname of the IO Handler.");
+    });
+
+
+    for(var address of settings['IOHandler']['address']) {
+        createAddressRow(address);
+    }
+
+
+    $(".item .address").on("click", (event) => {
+        var address = "http://" + $(event.target).text() + "/";
+        var stages = ["r255g0b0", "r0g255b0", "r0g0b255"];
+        var i = 0;
+        for(i=0; i<stages.length; i++) {
+            setTimeout($.ajax, i * 300, ({
+                type: "GET",
+                url: address,
+                data: stages[i],
+                complete: (data) => {}
+            }));
+        }
+        
+        setTimeout(resetAll, (stages.length * 300))
+    });
+
 });
+
+function checkForEnterClick(event, button) {
+    if (event.keyCode === 13) {
+        button.click();
+      }
+}
 
 function submitForm(element) {
     $(element.form).children().last().children().last().click();
     window.location.href = window.location.href;
+}
+
+function addIOHandler(itemElement) {
+    var address = $(itemElement).children().first().children().first().val();
+    if(address.trim() != "") {
+        $.ajax({
+            type: "GET",
+            url: "./endpoint/set",
+            data: "type=addIOHandlerAddress&address=" + address,
+            dataType: "json",
+            
+            complete: function(json) {
+                var exp = !("error" in json.responseJSON);
+                console.log(exp);
+                if(exp) {
+                    $(itemElement).children().first().children().first().val("");
+                    createAddressRow(address);
+                    console.log(json.responseText);
+                } else {
+                    $(".IOHandlerbox").addClass("wrong");
+                    setTimeout(() => {
+                        $(".IOHandlerbox").removeClass("wrong");
+                    }, 1000);
+                }
+            }
+        });
+    }
+}
+
+function removeIOHandler(itemElement) {
+    var address = $(itemElement).children().first().text();
+    if(!confirm("Are you sure you want to remove " + address + "?")){ return; }
+    $.ajax({
+        type: "GET",
+        url: "./endpoint/set",
+        data: "type=removeIOHandlerAddress&address=" + address,
+        dataType: "json",
+        
+        complete: function(json) {
+            $(itemElement).remove();
+            console.log(json.responseText);
+        }
+    });
+}
+
+
+function getHSL() {
+    var endpoint;
+    var hsl;
+    if(settings['forward']['enabled']) {
+        endpoint = "http://" + settings['forward']['to'] + "/endpoint/get?data=hsl";
+    } else {
+        endpoint = "endpoint/get?data=hsl";
+    }
+
+    $.ajax({
+        url: endpoint,
+        async: false,
+        dataType: "json",
+        beforeSend: (request) => {
+            request.withCredentials = true;
+            request.setRequestHeader("Authorization", "Basic " + btoa('admin' + ":" + 'password'));
+        },
+        complete: (json) => {
+            hsl = json.responseJSON;
+        }
+    });
+    return hsl;
+}
+
+function resetAll() {
+    var endpoint;
+
+    if(settings['forward']['enabled']) {
+        endpoint = "http://" + settings['forward']['to'] + "/endpoint/set";
+    } else {
+        endpoint = "endpoint/set";
+    }
+
+    var hsl = getHSL();
+    var hue = hsl[0];
+    var saturation = hsl[1];
+    var luminance = hsl[2];
+    var isOn = hsl[3];
+
+    $.ajax({
+        url: endpoint,
+        async: false,
+        dataType: "json",
+        data: "type=hsl&isOn=" + isOn + "&h=" + hue + "&s=" + saturation + "&l=" + luminance,
+        beforeSend: (request) => {
+            request.withCredentials = true;
+            request.setRequestHeader("Authorization", "Basic " + btoa('admin' + ":" + 'password'));
+        },
+        complete: () => {}
+    });
+
+}
+
+function createAddressRow(address) {
+    $(".IOHandlerbox .scrollbox").prepend(`<div class="item"><span class="address">` + address + `</span><i onclick="removeIOHandler(this.parentNode);" class="fas fa-times-circle"></i></div>`); 
 }

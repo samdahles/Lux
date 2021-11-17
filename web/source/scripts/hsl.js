@@ -29,12 +29,26 @@ function updateFromEndpoint() {
     } else {
         endpoint = "endpoint/get?data=hsl";
     }
-    $.getJSON(endpoint, function(data) {
-        $("input.hue").val(data[0]);
-        $("input.saturation").val(data[1]);
-        $("input.luminance").val(data[2]);
-        $("#lightControlIsOn").val(data[3]);
-        updateHSLValues();
+
+    $.ajax({
+        url: endpoint,
+        async: false,
+        dataType: "json",
+        beforeSend: (request) => {
+            request.withCredentials = true;
+            request.setRequestHeader("Authorization", "Basic " + btoa('admin' + ":" + 'password'));
+        },
+        success: (data) => {
+            $("input.hue").val(data[0]);
+            $("input.saturation").val(data[1]);
+            $("input.luminance").val(data[2]);
+            $("#lightControlIsOn").val(data[3]);
+            updateHSLValues();        
+        },
+
+        error: (data) => {
+            console.error(data);
+        }
     });
 }
 
@@ -54,19 +68,26 @@ $(window).on("DOMContentLoaded", () => {
     settings = getSettings();
     synchronizationEnabled = settings['synchronization']['enabled'];
     synchronizationTimeout = settings['synchronization']['timeout'];
-    updateFromEndpoint();
 
     if(settings['forward']['enabled']) {
+        $(".forwardCode").attr("name", "pass");
+        $(".forwardCode").attr("value", settings['forward']['code']);
+
         $("#lightControlForm").on("submit", (event) => {
             var form = event.currentTarget;
-            var endpoint = settings['forward']['to'] + "/endpoint/set";
+            var endpoint = "http://" + settings['forward']['to'] + "/endpoint/set";
             $.ajax({
                 type: "GET",
                 url: endpoint,
                 data: $(form).serialize(),
+                success: (data) => {
+                    console.log(data);
+                }
             });
         });
     }
+
+    updateFromEndpoint();
 
     if(synchronizationEnabled) {
         setInterval(() => {
@@ -80,8 +101,6 @@ $(window).on("DOMContentLoaded", () => {
     $(".lightbutton").on("click", () => {
         toggleLightPower();
     });
-
-    updateFromEndpoint();
 });
 
 

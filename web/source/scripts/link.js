@@ -16,10 +16,15 @@ $(window).on("DOMContentLoaded", () => {
     }
 
     $(".submitAllFormsButton").on("click", () => {
-        $("form").submit();
-        location.reload();
+        $("form").each(function(i, obj) {
+            form = $(obj);
+            $.ajax({
+                type: "GET",
+                url: $(form).attr("action"),
+                data: $(form).serialize(),
+            });
+        });
     });
-
     $(".forwardingAddressHelp").on("click", () => {
         alert(`Please enter the IP address or domain name, without 'http://' or 'https://' and do not end with a trailing slash.`);
     });
@@ -56,3 +61,8 @@ $(window).on("DOMContentLoaded", () => {
     });
 
 });
+
+function submitForm(element) {
+    $(element.form).children().last().children().last().click();
+    window.location.href = window.location.href;
+}

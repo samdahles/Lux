@@ -1,40 +1,4 @@
 <?php
-function rgb2hsl($r, $g, $b)
-{
-    $r /= 255;
-    $g /= 255;
-    $b /= 255;
-    $max = max($r, $g, $b);
-    $min = min($r, $g, $b);
-    $h = 0;
-    $s = 0;
-    $l = ($max + $min) / 2;
-    $d = $max - $min;
-    if ($d == 0) {
-        $h = $s = 0;
-    } else {
-        $s = $d / (1 - abs(2 * $l - 1));
-        switch ($max) {
-            case $r:
-                $h = 60 * fmod((($g - $b) / $d), 6);
-                if ($b > $g) {
-                    $h += 360;
-                }
-                break;
-            case $g:
-                $h = 60 * (($b - $r) / $d + 2);
-                break;
-            case $b:
-                $h = 60 * (($r - $g) / $d + 4);
-                break;
-            default:
-                $h = 0;
-                break;
-        }
-    }
-    return [round($h, 0), round($s * 100, 0), round($l * 100, 0)];
-}
-
 function hsl2rgb($h, $s, $l)
 {
     $c = (1 - abs(2 * ($l / 100) - 1)) * $s / 100;

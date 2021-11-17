@@ -1,6 +1,7 @@
 <?php
 require "../php/color.php";
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
 
 $github_release_url = "https://api.github.com/repos/samdahles/Lux/releases";
 
@@ -16,15 +17,10 @@ if(!isset($_GET['data'])) {
 } else {
 
     if($_GET['data'] == "rgb") {
-        $raw = file_get_contents("../php/hsl.json");
-        $raw = str_replace(array("[", "]"), "", $raw);
-        $raw = explode(",", $raw);
-        $rgb = hsl2rgb($raw[0], $raw[1], $raw[2]);
-        $raw[0] = $rgb[0];
-        $raw[1] = $rgb[1];
-        $raw[2] = $rgb[2];
-        $raw[3] = filter_var($raw[3], FILTER_VALIDATE_BOOLEAN);
-        $data = json_encode($raw);
+        $hsl = json_decode(file_get_contents("../php/hsl.json"), true);
+        $rgb = hsl2rgb($hsl[0], $hsl[1], $hsl[2]);
+        $hsl[3] = filter_var($hsl[3], FILTER_VALIDATE_BOOLEAN);
+        $data = json_encode($hsl);
     } elseif($_GET['data'] == "hsl") {
         $data = file_get_contents("../php/hsl.json");
     } elseif($_GET['data'] == "settings") {

@@ -1,7 +1,7 @@
 <div class="window-content link">
     <div class="vacontainer">   
         <span class="message"></span>
-        <form name="enableLinkForm" action="./endpoint/set" target="dummyframe">
+        <form class="flexparent" name="enableLinkForm" action="./endpoint/set" target="dummyframe">
             <input type="hidden" name="type" value="forwardenable" />
             <div class="row">
                 <label for="enablePassword">Enable Link</label>
@@ -12,19 +12,19 @@
                 <input type="submit" class="hiddenSubmit" />
             </div>
         </form>
-        <form name="setForwardingAddressForm" action="./endpoint/set" target="dummyframe">
+        <form class="flexparent" name="setForwardingAddressForm" action="./endpoint/set" target="dummyframe">
             <input type="hidden" name="type" value="forwardaddress" />
             <div class="row">
-                <label for="enablePassword">Forwarding Address</label>
+                <label for="enablePassword">Linking Address</label>
                 <span class="info forwardingAddressHelp"><i class="fas fa-question-circle"></i></span>
                 <input type="text" name="address" class="forwardingAddress" />
             </div>
         </form>
-        <form name="setForwardCodeForm" action="./endpoint/set" target="dummyframe">
+        <form class="flexparent" name="setForwardCodeForm" action="./endpoint/set" target="dummyframe">
             <input type="hidden" name="type" value="forwardcode" />
             <input type="hidden" name="code" class="code entry-A" value="0000" />
-            <span class="description">Other user's access code</span>
             <div class="row">
+                <span class="description">Other user's access code</span>
                 <input type="number" maxlength="1" min="0" class="codeentry entry-A-1" placeholder="_" />
                 <input type="number" maxlength="1" min="0" class="codeentry entry-A-2" placeholder="_" />
                 <input type="number" maxlength="1" min="0" class="codeentry entry-A-3" placeholder="_" />
