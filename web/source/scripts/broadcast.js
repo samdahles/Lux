@@ -67,7 +67,6 @@ async function returnToNormal() {
         url: endpoint,
         method: "get",
         success: function(data) {
-            console.warn(data);
             for(let address of addresses) {
                 let url = btoa("http://" + address + "?" + "r" + data[0] + "g" + data[1] + "b" + data[2]);
                 sendAjax("/endpoint/http?url=" + url);
