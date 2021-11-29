@@ -16,8 +16,8 @@ function sleep(ms) {
 
 
 $(window).on("DOMContentLoaded", () => {
-
-    addresses = getSettings()['IOHandler']['address'];
+    settings = getSettings()
+    addresses = settings['IOHandler']['address'];
     backgroundInterval = setInterval(() => {
         if(isVideoEnabled) {
             setRGB();
@@ -53,11 +53,36 @@ $(window).on("DOMContentLoaded", () => {
     });
 });
 
-async function sendAjax(url) {
+
+
+async function returnToNormal() {
+    let endpoint;
+    if(settings['forward']['enabled']) {
+        endpoint = "http://" + settings['forward']['to'] + "/endpoint/get?data=rgb";
+    } else {
+        endpoint = "/endpoint/get?data=rgb";
+    }
+
+    $.ajax({
+        url: endpoint,
+        method: "get",
+        success: function(data) {
+            console.warn(data);
+            for(let address of addresses) {
+                let url = btoa("http://" + address + "?" + "r" + data[0] + "g" + data[1] + "b" + data[2]);
+                sendAjax("/endpoint/http?url=" + url);
+            }
+        }
+    });
+
+}
+
+async function sendAjax(url, data={}) {
     try {
         let request = $.ajax({
             url: url,
-            method: "get"
+            method: "get",
+            data: data
         });
         return request;
     } catch(err) {
@@ -110,6 +135,7 @@ async function disableCapture(el) {
     $(el).text("Start capture");
     $(el).removeClass("clicked");
     isVideoEnabled = false;
+    returnToNormal();
 }
 
 
@@ -226,3 +252,4 @@ function generateGradient(rgbStart, rgbEnd, entries) {
 
     return saida;
 }
+
