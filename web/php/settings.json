@@ -1,1 +1,1 @@
-{"build":"v0.1.0-alpha.1","latest":"v0.1.0-alpha.1","isUpdate":false,"synchronization":{"enabled":false,"timeout":1000},"mode":"HSL","forward":{"enabled":true,"to":"raspberrypi"},"IOHandler":{"address":[]}}
+{"build":"v0.1.0-alpha.1","latest":"v0.1.0-alpha.1","isUpdate":false,"synchronization":{"enabled":false,"timeout":1000},"mode":"HSL","forward":{"enabled":false,"to":"raspberrypi"},"IOHandler":{"address":["192.168.2.17"]}}

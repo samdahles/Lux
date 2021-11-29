@@ -87,7 +87,6 @@ $(window).on("DOMContentLoaded", () => {
         });
     }
 
-    updateFromEndpoint();
 
     if(synchronizationEnabled) {
         setInterval(() => {
@@ -101,6 +100,10 @@ $(window).on("DOMContentLoaded", () => {
     $(".lightbutton").on("click", () => {
         toggleLightPower();
     });
+});
+
+$(window).on("load", () => {
+    updateFromEndpoint();
 });
 
 

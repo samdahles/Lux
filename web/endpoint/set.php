@@ -87,8 +87,6 @@ if($_GET['type'] == "hsl") {
             file_get_contents("http://". $address ."/?r${r}g${g}b${b}");
       }
 
-
-
       if(!$nosave){
             $ret = storeHSLValues($hue, $sat, $lum, $isOn);
             if($ret != false) {
@@ -98,6 +96,18 @@ if($_GET['type'] == "hsl") {
             }
       }
 
+} elseif($_GET['type'] == "direct") {
+      if(!isset($_GET['r']) || !isset($_GET['g']) || !isset($_GET['b'])) {
+            dieError(4);
+      }
+      $settingsJSON = json_decode(file_get_contents("../php/settings.json"), true);
+      $addresses = $settingsJSON['IOHandler']['address'];
+      $r = $_GET['r'];
+      $g = $_GET['g'];
+      $b = $_GET['b'];
+      foreach ($addresses as $address) {
+            file_get_contents("http://". $address ."/?r${r}g${g}b${b}");
+      }
 } elseif($_GET['type'] == "enablepass") {
       validatePassword();
       $loginJSON = json_decode(file_get_contents("../php/login.json"), true);

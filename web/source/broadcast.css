@@ -1,0 +1,70 @@
+button.clicked {
+    background-color: #bf9fe9;
+    color: #4a4074;
+}
+
+.capture-button {
+    margin-bottom: 20px;
+}
+
+.broadcast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins";
+}
+
+.broadcast div * {
+    text-align: center;
+}
+
+.averagecolor {
+    padding: 20px;
+    position: relative;
+}
+
+.currentcolor {
+    display: block;
+    margin-top: 20px;
+}
+
+.disablednotice {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.nosupport {
+    padding: 20px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nosupport p {
+    margin: 0;
+    margin-bottom: 2px;
+}
+
+a[href] {
+    color: #bf9fe9;
+}
+
+.disablednotice * {
+    display: block;
+}
+
+.broadcast-dump {
+    display: none;
+    width: 500px;
+    max-width: 80vw;
+}

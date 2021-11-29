@@ -8,12 +8,16 @@
             <span class="menu-icon"><i class="fas fa-sliders-h"></i></span>
             <span class="menu-name">Dashboard</span>
         </a>
+        <a class="menu-item menu-broadcast" href="./broadcast">
+            <span class="menu-icon"><i class="fas fa-broadcast-tower"></i></span>
+            <span class="menu-name">Broadcasting</span>
+        </a>
         <a class="menu-item menu-settings" href="./settings">
             <span class="menu-icon"><i class="fas fa-cogs"></i></span>
             <span class="menu-name">Settings</span>
         </a>
         <a class="menu-item menu-link" href="./link">
-            <span class="menu-icon"><i class="fas fa-broadcast-tower"></i></span>
+            <span class="menu-icon"><i class="fas fa-link"></i></span>
             <span class="menu-name">Link</span>
         </a>
         <a class="menu-item menu-updates" href="./updates">

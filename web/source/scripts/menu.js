@@ -39,17 +39,7 @@ $(window).on("load", () => {
 
     var filename = window.location.pathname.replace("/","").replace(".php", "").toLowerCase();
 
-    if(filename == "dashboard") {
-        $(".menu-dashboard").addClass("active");
-    } else if(filename == "settings") {
-        $(".menu-settings").addClass("active");
-    } else if(filename == "link") {
-        $(".menu-link").addClass("active");
-    } else if(filename == "updates") {
-        $(".menu-updates").addClass("active");
-    } else if(filename == "about") {
-        $(".menu-about").addClass("active");
-    }
+    $(".menu-" + filename).addClass("active");
 
     $(document).on("touchstart", (e) => {
         checkRangeSelect(e);
