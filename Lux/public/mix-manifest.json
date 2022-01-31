@@ -1,0 +1,16 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/js/swiped-events.js": "/js/swiped-events.js",
+    "/css/app.css": "/css/app.css",
+    "/fonts/fonts.css": "/fonts/fonts.css",
+    "/images/lightbulb.png": "/images/lightbulb.png",
+    "/images/lux_white.svg": "/images/lux_white.svg",
+    "/images/rotate_device.png": "/images/rotate_device.png",
+    "/css/broadcast.css": "/css/broadcast.css",
+    "/css/keyframes.css": "/css/keyframes.css",
+    "/css/login.css": "/css/login.css",
+    "/css/main.css": "/css/main.css",
+    "/css/menu.css": "/css/menu.css",
+    "/css/settings.css": "/css/settings.css",
+    "/css/window.css": "/css/window.css"
+}

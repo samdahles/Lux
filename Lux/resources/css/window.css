@@ -1,0 +1,280 @@
+.window.divider {
+    position: relative;
+}
+
+.window.divider > .window-content {
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    background-color: #161618;
+    position: relative;
+    color: #ffffff;
+}
+
+.window.divider > .menubutton {
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    color: #ffffff;
+    z-index: 1;
+    font-family: "Roboto";
+    cursor: pointer;
+    user-select: none;
+    font-weight: 300;
+    display: none;
+}
+
+.window.divider > .menubutton > i {
+    transform: scale(0.6, 0.7);
+    transition: 1s transform;
+}
+
+.window.divider > .menubutton.rotated > i {
+    transform: scale(0.6, 0.7) rotate(180deg);
+} 
+
+
+.dashboard > .lightbox {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    display: block;
+}
+
+.dashboard > .lightbox > .lightbutton {
+    border-radius: 100%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 20px 0px #f3f3f388;
+}
+
+.dashboard > .lightbox > .lightbutton > .lightbulb {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/lightbulb.png");
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-size: 50px;
+    filter: invert(100%);
+}
+
+.dashboard > .controlbox {
+    width: 100%;
+    height: 50%;
+    max-height: 30%;
+    position: relative;
+    padding: 0;
+    padding-top: 20px;
+}
+
+.dashboard > .controlbox > * {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.dashboard > .controlbox > *  > .row {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.dashboard > .controlbox > *  > .row > a {
+    display: block;
+    margin-bottom: 7px;
+    font-family: "Poppins";
+    font-size: 12px;
+}
+
+.dashboard > .controlbox > * > .row > input {
+    display: block;
+    width: 60%;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+.dashboard > .controlbox > * > .row > input.hue::-webkit-slider-runnable-track {
+    background: linear-gradient(to right, 
+    hsl(  0, 50%, 50%) 0%,
+    hsl( 60, 50%, 50%) 16.67%,
+    hsl(120, 50%, 44%) 33.33%,
+    hsl(180, 50%, 50%) 50%, 
+    hsl(240, 50%, 50%) 66.67%,
+    hsl(320, 50%, 50%) 83.33%, 
+    hsl(360, 50%, 50%) 100%
+    );
+}
+
+.updates > .container {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.updates.noupdate {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.updates.noupdate > .container {
+    height: unset;
+}
+
+.updates > .container > .titlebox {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.updates > .container > .titlebox > .icon {
+    height: fit-content;
+    width: auto;
+    font-size: 50px;
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+.updates > .container > .titlebox > .icon > i.fa-download {
+    display: block;
+    color: #ffae00;
+    animation: 3s updateColorFade infinite;
+}
+
+.updates > .container > .titlebox > .icon > i.fa-check {
+    display: none;
+    height: 130px;
+    color: #79ff79;
+}
+
+.updates.noupdate > .container > .titlebox > .icon > i.fa-download {
+    display: none;
+}
+
+.updates.noupdate > .container > .titlebox > .icon > i.fa-check {
+    display: block;
+}
+
+.updates > .container > .infobox {
+    font-family: "Poppins";
+    text-align: center;
+}
+
+.updates > .container > .infobox > .subtitle {
+    display: none;
+}
+
+.updates > .container > .infobox > .subtitle.update {
+    display: block;
+}
+
+.updates.noupdate > .container > .infobox > .subtitle {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.updates.noupdate > .container > .infobox > .subtitle.update {
+    display: none;
+}
+
+.updates > .container > .infobox > .versioninfo > a.latest {
+    display: inline-block;
+}
+
+.updates.noupdate > .container > .infobox > .versioninfo > a.latest {
+    display: none;
+}
+
+
+.updates > .container > .infobox > .versioninfo > a {
+    display: inline-block;
+    word-break: keep-all;
+}
+
+.updates > .container > .infobox > .versioninfo > a > span {
+    font-family: "Office Code Pro";
+    color: #bf9fe9;
+}
+
+.updates.noupdate > .container > .buttonbox {
+    display: none;
+}
+
+.updates > .container > .buttonbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.updates > .container > .buttonbox > a {
+    color: #bf9fe9;
+    padding: 10px;
+    font-family: "Poppins";
+    background-color: #4a4074;
+    border-radius: 5px;
+    text-decoration: none;
+    box-shadow: 0px 0px 20px 0px #4a4074;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.about {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.about > .vacontainer {
+    height: auto;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about > .vacontainer > .logo {
+    width: 100px;
+    height: 100px;
+    background-image: url("/images/lux_white.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-bottom: 10px;
+}
+
+.about > .vacontainer > .title {
+    font-family: "Office Code Pro";
+    font-size: 30px;
+    color: #c191f7;
+}
+
+.about > .vacontainer > .subtitle {
+    color: #4a4074;
+    font-family: "Office Code Pro";
+    font-size: 12px;
+}
+
+.about > .vacontainer > .by {
+    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji"
+}

@@ -1,8 +1,0 @@
-[
-    "You used the wrong password.",
-    "Your session has expired. Please enter the password again.",
-    "You need a password to perform this action. Please set the ?pass GET parameter accordingly.",
-    "You need a password for this action.",
-    "Too few GET parameters have been specified.",
-    "An unknown GET parameter has been specified."
-]

@@ -1,0 +1,49 @@
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type=number], input[type=number]::placeholder {
+    color: #161618;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+body > .vacontainer > span {
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    padding-bottom: 5px;
+    font-family: "Poppins";
+    width: 100%;
+    display: block;
+    max-width: 80vw;
+}
+
+body > .vacontainer > form {
+    display: block;
+}
+
+body > .vacontainer > form > input {
+    display: inline-block;
+    width: 15vmin;
+    height: 15vmin;
+    text-align: center;
+    font-size: 7vmin;
+    font-family: "Office Code Pro";
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    caret-color: transparent;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+}
+
+body > .vacontainer > form > input:focus {
+    background-color: #bf9fe9; 
+}

@@ -1,0 +1,264 @@
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input, input::placeholder {
+    color: #161618;
+}
+
+
+
+.window-content {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.window-content > .vacontainer {
+    height: auto;
+    width: 100%;
+}
+
+.window-content > .vacontainer > .message {
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Poppins";
+    color: #79ff79;
+    margin-bottom: 20px;
+}
+
+
+hr {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 10px;    
+    margin-bottom: 20px;
+    border: 1px solid #bf9fe9;
+}
+
+form {
+    font-size: 16px;
+    font-family: "Poppins";
+    text-align: center;
+}
+
+form input[type=text], form input[type=url] {
+    padding: 4px;
+    border: none;
+    height: 34px;
+    border-radius: 5px;
+}
+
+.flexparent .info {
+    padding-right: 15px;
+}
+
+.flexparent .info > i {
+    color: #bf9fe9;
+    transition: 1s color;
+}
+
+.flexparent .info > i:hover {
+    color: #ffffff;
+    cursor: help;
+}
+
+button {
+    color: #bf9fe9;
+    border: none;
+    padding: 10px;
+    font-family: "Poppins";
+    background-color: #4a4074;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 0 auto;
+    width: fit-content;
+    display: flex;
+    cursor: pointer;
+    transition: 1s background-color, 1s color;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #161618;
+}
+
+.flexparent > span.description {
+    display: block;
+    width: 100%;
+    text-align: center;
+    font-family: "Office Code Pro";
+    font-size: 0.8em;
+}
+
+.flexparent > .row > input.codeentry {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    font-size: 17px;
+    font-family: "Office Code Pro";
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    caret-color: transparent;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+    align-self: center;
+}
+
+.flexparent > .row > input.codeentry:focus {
+    background-color: #bf9fe9; 
+}
+
+
+form .hiddenSubmit {
+    display: none !important;
+}
+
+
+.flexparent > .row {
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    max-width: 600px;
+    margin: auto;
+    justify-content: center;
+    padding-top: 0;
+    padding-bottom: 20px;
+}
+
+.flexparent > .row > label[for], .flexparent > .row > .description {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.flexparent > .row > .switch {
+    position: relative;
+    width: 60px;
+    height: 34px;
+}
+
+.flexparent > .row > .switch > input[type=checkbox] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.flexparent > .row > .switch > .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #3a3a3a;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.flexparent > .row > .switch > .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #ffffff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+.flexparent > .row > .switch > input:checked + .slider {
+    background-color: #bf9fe9;
+}
+
+.flexparent > .row > .switch > input:focus + .slider {
+    box-shadow: 0 0 1px #bf9fe9;
+}
+
+
+.flexparent > .row > .switch > input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.IOHandlerbox {
+    font-family: "Office Code Pro";
+    padding: 20px;
+}
+
+.IOHandlerbox > .scrollbox {
+    overflow: auto;
+    max-height: 100px;
+}
+
+.IOHandlerbox .item {
+    width: 100%;
+    height: auto;
+    display: flex;
+    padding: 10px;
+    max-width: 600px;
+    color: #40d4d4;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin: 0 auto;
+}
+
+.IOHandlerbox > .item {
+    transition: 0.5s background;
+    border-bottom: 1px solid #3a3a3a;
+}
+
+.IOHandlerbox.wrong > .item {
+    background-color: #ff5b5b;
+}
+
+
+.IOHandlerbox .item > i {
+    font-size: 1em;
+    width: 10%;
+    max-width: 60px;
+    text-align: center;
+    color: #ff5b5b;
+    cursor: pointer;
+}
+
+.IOHandlerbox > .item > i {
+    color: #79ff79;
+}
+
+.IOHandlerbox .item > .address {
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.IOHandlerbox .item > .address > input {
+    padding: 4px;
+    font-size: 1em;
+    border: none;
+    font-family: "Office Code Pro";
+    background: transparent;
+    color: #ffffff;
+    border-bottom: 1px solid #bbbbff;
+    transition: 1s border-color;
+}
+
+.IOHandlerbox .item > .address > input:hover {
+    border-bottom: 1px solid #ff5b5b;
+}
+
+.IOHandlerbox .item > .address > input::placeholder {
+    color: #ffffff;
+}
